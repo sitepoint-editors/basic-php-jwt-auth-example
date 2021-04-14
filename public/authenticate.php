@@ -21,13 +21,13 @@ if ($hasValidCredentials) {
 
     // Create the token as an array
     $data = [
-        'iat'  => $issuedAt,         // Issued at: time when the token was generated
-        'jti'  => $tokenId,          // Json Token Id: an unique identifier for the token
-        'iss'  => $serverName,       // Issuer
-        'nbf'  => $issuedAt,         // Not before
-        'exp'  => $expire,           // Expire
-        'data' => [                  // Data related to the signer user
-            'userName' => $username, // User name
+        'iat'  => $issuedAt->getTimestamp(),    // Issued at: time when the token was generated
+        'jti'  => $tokenId,                     // Json Token Id: an unique identifier for the token
+        'iss'  => $serverName,                  // Issuer
+        'nbf'  => $issuedAt->getTimestamp(),    // Not before
+        'exp'  => $expire,                      // Expire
+        'data' => [                             // Data related to the signer user
+            'userName' => $username,            // User name
         ]
     ];
 
